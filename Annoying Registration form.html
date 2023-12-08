@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Design by foolishdeveloper.com -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient( 105deg, #88beee, #0a2e73);
+        }
+        
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .registration_form {
+            background: white;
+            padding: 25px;
+            border-radius: 5px;
+            width: 400px;
+        }
+        
+        .registration_form .title {
+            text-align: center;
+            font-size: 25px;
+            text-transform: uppercase;
+            color: white;
+            background: rgb(13, 98, 215);
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-top: -25px;
+            margin-left: -25px;
+            margin-right: -25px;
+        }
+        
+        .form_wrap {
+            margin-top: 35px;
+        }
+        
+        .form_wrap .input_wrap {
+            margin-bottom: 15px;
+        }
+        
+        .form_wrap .input_wrap:last-child {
+            margin-bottom: 0;
+        }
+        
+        .form_wrap .input_wrap label {
+            display: block;
+            margin-bottom: 3px;
+            color: #1a1a1f;
+        }
+        
+        .form_wrap .input_grp {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .form_wrap .input_grp input[type="text"] {
+            width: 165px;
+        }
+        
+        .form_wrap input[type="text"] {
+            width: 100%;
+            border-radius: 3px;
+            border: 1.3px solid #9597a6;
+            padding: 10px;
+            outline: none;
+        }
+        
+        .form_wrap input[type="text"]:focus {
+            border-color: #063abd;
+        }
+        
+        .form_wrap ul {
+            border: 1px solid rgb(115, 185, 235);
+            width: 70%;
+            background: rgb(206, 238, 242);
+            margin-left: 15%;
+            padding: 8px 10px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .form_wrap ul li:first-child {
+            margin-right: 15px;
+        }
+        
+        .form_wrap ul .radio_wrap {
+            position: relative;
+            margin-bottom: 0;
+        }
+        
+        .form_wrap ul .radio_wrap .input_radio {
+            position: absolute;
+            top: 0;
+            right: 0;
+            opacity: 0;
+        }
+        
+        .form_wrap ul .radio_wrap span {
+            display: inline-block;
+            font-size: 17px;
+            padding: 3px 15px;
+            border-radius: 15px;
+            color: #101749;
+        }
+        
+        .form_wrap .input_radio:checked~span {
+            background: #105ce2;
+            color: white;
+        }
+        
+        .form_wrap .submit_btn {
+            width: 100%;
+            background: #0d6ad7;
+            padding: 10px;
+            border: 0;
+            color: white;
+            font-size: 17px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .form_wrap .submit_btn:hover {
+            background: #051c94;
+        }
+        
+        #mouche {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            /* Ajustez la taille de la mouche selon vos besoins */
+            height: 150px;
+            cursor: pointer;
+        }
+        
+        .form_wrap .input_wrap ul .radio_wrap span {
+            display: inline-block;
+            font-size: 17px;
+            padding: 3px 15px;
+            border-radius: 15px;
+            color: #101749;
+        }
+        
+        .form_wrap .input_wrap ul .radio_wrap span {
+            display: inline-block;
+            font-size: 17px;
+            padding: 3px 15px;
+            border-radius: 15px;
+            color: #101749;
+        }
+        /* Set constant colors for Male and Female labels */
+        
+        .form_wrap .input_wrap ul .radio_wrap span[value="male"] {
+            /* Male label color */
+            background-color: #ff69b4;
+            color: white;
+        }
+        
+        .form_wrap .input_wrap ul .radio_wrap span[value="female"] {
+            /* Female label color */
+            background-color: #105ce2;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="mouche" src="une_mouche-removebg-preview (1).png" alt="Mouche" onclick="eludermouche()">
+    <audio id="buzzSound" src="audio-mouch.mp3"></audio>
+    <div class="wrapper">
+        <div class="registration_form">
+            <div class="title">
+                Registration Form
+            </div>
+
+            <form>
+                <div class="form_wrap">
+                    <div class="input_grp">
+                        <div class="input_wrap">
+                            <label for="fname">First Name</label>
+                            <input type="text" id="fname">
+                            <span id="fnameError" style="color: green;"></span>
+                        </div>
+                        <div class="input_wrap">
+                            <label for="lname">Last Name</label>
+                            <input type="text" id="lname">
+                            <span id="lnameError" style="color: blue;"></span>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="email">Email Address</label>
+                        <input type="text" id="email">
+                    </div>
+
+                    <div class="input_wrap">
+                        <label for="city">City</label>
+                        <input type="text" id="city">
+                        <span id="cityError" style="color: pink;"></span>
+                    </div>
+                    <div class="input_wrap">
+                        <label for="country">Country</label>
+                        <input type="text" id="country">
+                        <span id="countryError" style="color: magenta;"></span>
+                    </div>
+
+                    <div class="input_wrap">
+                        <label>Gender</label>
+                        <ul>
+                            <li>
+                                <label class="radio_wrap">
+  								<input type="radio" name="gender" value="male" class="input_radio" checked>
+  								<span>Male</span>
+  							</label>
+                            </li>
+                            <li>
+                                <label class="radio_wrap">
+  								<input type="radio" name="gender" value="female" class="input_radio">
+  								<span>Female</span>
+  							</label>
+                            </li>
+                        </ul>
+                    </div>
+
+
+
+                    <div class="input_wrap">
+                        <input type="submit" value="Register Now" class="submit_btn" onclick="eluder()">
+                    </div>
+
+
+
+                </div>
+                <div class="container">
+
+                    <button id="downloadButton" class="submit_btn" id="nonCliquable" style="background: #2581ea;">Télécharger</button>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            var progressBar = document.getElementById('progressBar');
+            var progress = 0;
+            var interval = setInterval(function() {
+                progress += 3;
+                console.log('Téléchargement en cours : ' + progress + '%');
+                progressBar.style.width = progress + '%';
+
+                if (progress >= 70) {
+                    console.log('Téléchargement bloqué à 90%');
+                    clearInterval(interval);
+                }
+            }, 1000);
+        });
+
+        function shuffleElements() {
+            const formWrap = document.querySelector('.form_wrap');
+            const formElements = Array.from(formWrap.children);
+            formElements.sort(() => Math.random() - 0.5);
+            formWrap.innerHTML = ''; // Clear the form elements
+            formElements.forEach(element => {
+                formWrap.appendChild(element);
+            });
+        }
+        const cityInput = document.getElementById('city');
+        const countryInput = document.getElementById('country');
+        const errorSpanCity = document.getElementById('cityError');
+        const errorSpanCountry = document.getElementById('countryError');
+
+        const validatePhrase = (input, errorSpan, phrase) => {
+            input.addEventListener('input', () => {
+                const inputValue = input.value.toLowerCase();
+                const containsPhrase = inputValue.includes(phrase);
+
+                if (!containsPhrase) {
+                    errorSpan.textContent = `${input.id.charAt(0).toUpperCase() + input.id.slice(1)} must contain "${phrase}".`;
+                } else {
+                    errorSpan.textContent = '';
+                }
+            });
+        };
+
+        validatePhrase(cityInput, errorSpanCity, 'the great');
+        validatePhrase(countryInput, errorSpanCountry, 'the great');
+        // Call the shuffleElements function on page load
+        window.addEventListener('load', shuffleElements);
+        // JavaScript code to generate random colors and apply them to specific elements
+
+        function getRandomColor() {
+            // Generate a random color in hexadecimal format
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+
+        // Apply random colors to different elements
+        document.body.style.background = getRandomColor(); // Set random background color for the body
+
+        // Set random text color for the title
+        const title = document.querySelector('.title');
+        title.style.color = getRandomColor();
+
+        // Set random background color for the submit button
+        const submitBtn = document.querySelector('.submit_btn');
+        submitBtn.style.backgroundColor = getRandomColor();
+        submitBtn.style.borderColor = getRandomColor(); // Border color same as the background color
+
+        // You can continue adding more elements and applying random colors as needed
+        // ...
+
+        // Apply a random color to each radio button label on page load
+        const radioLabels = document.querySelectorAll('.radio_wrap span');
+        radioLabels.forEach(label => {
+            label.style.backgroundColor = getRandomColor();
+            label.style.color = getRandomColor();
+        });
+
+        function eludermouche() {
+            const mouche = document.getElementById('mouche');
+            const buzzSound = document.getElementById('buzzSound');
+
+            // Réinitialise la position de lecture
+            buzzSound.currentTime = 0;
+
+            // Joue le son
+            buzzSound.play();
+
+            // Génère des valeurs aléatoires pour le déplacement
+            const maxX = window.innerWidth - mouche.clientWidth;
+            const maxY = window.innerHeight - mouche.clientHeight;
+
+            let newX, newY;
+
+            // Assurez-vous que la mouche reste à l'intérieur de la fenêtre
+            do {
+                newX = Math.floor(Math.random() * maxX);
+                newY = Math.floor(Math.random() * maxY);
+            } while (newX + mouche.clientWidth > window.innerWidth || newY + mouche.clientHeight > window.innerHeight);
+
+            // Applique le déplacement à la mouche
+            mouche.style.left = `${newX}px`;
+            mouche.style.top = `${newY}px`;
+        }
+
+        function moveSubmitButton(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
+            const submitBtn = document.querySelector('.submit_btn');
+            const movementRange = 5; // Adjust the range here as needed
+
+            // Calculate the allowed range within the window
+            const maxX = window.innerWidth - submitBtn.clientWidth - movementRange;
+            const maxY = window.innerHeight - submitBtn.clientHeight - movementRange;
+
+            // Generate random values within the restricted range
+            const newX = Math.max(0, Math.floor(Math.random() * maxX));
+            const newY = Math.max(0, Math.floor(Math.random() * maxY));
+
+            // Apply the new position to the button
+            submitBtn.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        // Attach the moveSubmitButton function to the click event of the submit button
+        const submitButton = document.querySelector('.submit_btn');
+        submitButton.addEventListener('click', moveSubmitButton);
+
+        const maleLabel = document.querySelector('input[value="male"] + span');
+        maleLabel.style.backgroundColor = '#ff69b4';
+        maleLabel.style.color = 'white';
+
+        const femaleLabel = document.querySelector('input[value="female"] + span');
+        femaleLabel.style.backgroundColor = '#105ce2';
+        femaleLabel.style.color = 'white';
+
+        const firstNameInput = document.getElementById('fname');
+        const errorSpan = document.getElementById('fnameError');
+
+        firstNameInput.addEventListener('input', function() {
+            const firstNameValue = firstNameInput.value;
+            const containsNumber = /\d/.test(firstNameValue);
+
+            if (containsNumber) {;
+                errorSpan.textContent = ''
+            } else {
+                errorSpan.textContent = 'First Name must contain a number.';
+            }
+        });
+        const lastNameInput = document.getElementById('lname');
+        const errorSpanLastName = document.getElementById('lnameError');
+
+        lastNameInput.addEventListener('input', function() {
+            const lastNameValue = lastNameInput.value;
+            const containsSymbol = /[!@#$%^&*(),.?":{}|<>]/.test(lastNameValue);
+
+            if (!containsSymbol) {
+                errorSpanLastName.textContent = 'Last Name must contain a symbol.';
+            } else {
+                errorSpanLastName.textContent = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
